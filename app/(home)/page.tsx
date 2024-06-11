@@ -13,13 +13,16 @@ export const metadata = {
 const URL = 'https://nomad-movies.nomadcoders.workers.dev/movies';
 
 async function getMovies() {
-    console.log("i'm fetching")
+    await new Promise((resolve) => setTimeout(resolve, 5000));  // 일부러 로딩 상태를 만들기 위한 delay
+
     return await fetch(URL).then(res => res.json());
 }
 
 // (폴더명)은 url 경로를 생성하지 않는다!
 // 하지만 page가 동작하는 것에는 아무런 문제가 없음!
 // (폴더명): 논리적인 route group을 만드는 방법
+
+// async로 컴포넌트를 만들어야 하는 이유는 data fetching을 기다리면서 streaming을 하며 loading 컴포넌트를 보여주다가 준비가 완료되었을 때 이 페이지를 보여주기 때문
 export default async function HomePage() {  // function naming은 무엇이든 상관없음
     // 기존 React에서 사용하던 방식으로 api 통신해서 data fetching하려면 "use client"를 써서 클라이언트 컴포넌트로 만들어야 한다
     // 이런 방식으로는 API Key가 공개될 수 있고, 클라이언트가 DB에 직접 연결할 수 없어서 백엔드 서버를 거쳐야만 한다

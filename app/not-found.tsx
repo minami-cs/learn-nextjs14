@@ -1,4 +1,11 @@
 // 존재하지 않는 url 경로를 입력했을 때 자동으로 이 페이지가 렌더링된다!
+
+import { Metadata } from "next"
+
+export const metadata: Metadata = {
+    title: 'Not found'
+  }
+
 export default function NotFount() {
     return (
         <div>

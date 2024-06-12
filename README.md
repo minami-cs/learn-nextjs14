@@ -1,7 +1,18 @@
 # NextJS 14 실습 프로젝트
 
-> [Nomad Coders](https://nomadcoders.co/nextjs-for-beginners) 웹사이트에서 NextJS 시작하기 강좌를 듣고 최신 NextJS 14를 익히기 위한 실습 프로젝트입니다.
+> Nomad Coders 웹사이트에서 [NextJS 시작하기](https://nomadcoders.co/nextjs-for-beginners) 강좌를 들으면서 NextJS v14를 이용하여 실습한 프로젝트입니다.
 >
-> 프로젝트 웹사이트 [바로가기](https://nextjs-movie-psi-drab.vercel.app/)
+> 실습 프로젝트 배포 웹사이트 [바로가기](https://nextjs-movie-psi-drab.vercel.app/)
 
-https://github.com/minami-cs/learn-nextjs14/assets/66506477/11620d7c-5039-4d4e-8a19-487e82389b88
+## 프로젝트 미리보기
+
+https://github.com/minami-cs/learn-nextjs14/assets/66506477/77d0e8b3-5750-405e-98c4-72c5b916a0e6
+
+### 프로젝트 소개
+
+- 사용 기술 스택
+  - NextJS v14
+  - React v18
+  - TypeScript v5
+  - npm
+  - NodeJS v20 (LTS)

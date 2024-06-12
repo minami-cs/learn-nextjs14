@@ -20,7 +20,10 @@ export default function Movie({ title, id, poster_path }: MovieProps) {
   return (
     <div className={styles.movie}>
       <img src={poster_path} alt={title} onClick={onClickMovie} />
-      <Link href={`/movies/${id}`}>{title}</Link>
+      {/* prefetch 속성을 추가해두면 NextJS에서 미리 스크롤을 감지하여 해당 페이지들을 fetching한다. */}
+      <Link href={`/movies/${id}`} prefetch>
+        {title}
+      </Link>
     </div>
   );
 }

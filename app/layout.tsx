@@ -1,6 +1,8 @@
 // layout.tsx는 삭제해도 next에서 감지하고 자동으로 파일 생성함
-import { Metadata } from "next"
-import Navigation from "../components/navigation"
+import { Metadata } from "next";
+import Navigation from "../components/navigation";
+
+import "../styles/global.css";
 
 // metadata는 페이지마다 따로 작성하더라도 최종적으로는 layout에 작성된 부분과 함께 병합되어 보인다.
 // metadata는 layout과 page에서만 내보낼 수 있다.
@@ -9,10 +11,10 @@ import Navigation from "../components/navigation"
 export const metadata: Metadata = {
   title: {
     template: "%s | Next Movies",
-    default: "Next Movies"
+    default: "Next Movies",
   },
-  description: 'The best movies on the best framework',
-}
+  description: "The best movies on the best framework",
+};
 
 // 모든 페이지들은 아래 구조로 렌더링된다.
 // <Layout>
@@ -23,7 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -32,5 +34,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  )
+  );
 }

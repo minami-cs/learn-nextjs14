@@ -1,4 +1,4 @@
-"use client"    // CSR을 의미하는 것이 아니라, 초기 렌더링은 SSR이지만 이후 클라이언트 컴포넌트로써 hydrate된다는 것을 의미한다. 즉, next에게 이 컴포넌트는 interactive하다고 알려주는 것
+"use client"; // CSR을 의미하는 것이 아니라, 초기 렌더링은 SSR이지만 이후 클라이언트 컴포넌트로써 hydrate된다는 것을 의미한다. 즉, next에게 이 컴포넌트는 interactive하다고 알려주는 것
 // 서버 컴포넌트에서는 hydration 과정이 없기 때문에 브라우저에서 다운로드 받을 JS 코드가 없어서 빠른 렌더링이 가능하다.
 
 // use client를 선언해서 클라이언트 컴포넌트로 만들었다고 하더라도 기본적으로 NextJs에서 /app 하위의 모든 컴포넌트는 서버 컴포넌트이므로 SSR로 동작한다.
@@ -13,25 +13,29 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
+// module.css로 style을 가져와서 className을 지정하게 되면 클래스명에 자동으로 랜덤 문자가 붙어서 클래스명 중복이 일어나지 않는다
+import styles from "../styles/navigation.module.css";
+
 export default function Navigation() {
-    const [count, setCount] = useState(0);
-    const path = usePathname(); // usePathname() hook은 클라이언트 컴포넌트에서만 사용가능
-    
-    return (
-        <nav>
-            <ul>
-                <li>
-                    {/* 링크를 걸 때에는 a태그 대신 Link를 이용한다. 이동할 링크는 href 이용 */}
-                    <Link href="/">Home</Link> {path === "/" ? "👈" : ""}
-                </li>
-                <li>
-                    <Link href="/about-us">About Us</Link> {path === "/about-us" ? "👈" : ""}
-                </li>
-                <li>
-                    {/* 초기에는 SSR로 일반 html이지만 hydrate 이후 React Component가 되어 이벤트리스너가 동작한다 */}
-                    <button onClick={() => setCount(prev => prev + 1)}>{count}</button>
-                </li>
-            </ul>
-        </nav>
-    )
+  const [count, setCount] = useState(0);
+  const path = usePathname(); // usePathname() hook은 클라이언트 컴포넌트에서만 사용가능
+
+  return (
+    <nav className={styles.nav}>
+      <ul>
+        <li>
+          {/* 링크를 걸 때에는 a태그 대신 Link를 이용한다. 이동할 링크는 href 이용 */}
+          <Link href="/">Home</Link> {path === "/" ? "👈" : ""}
+        </li>
+        <li>
+          <Link href="/about-us">About Us</Link>{" "}
+          {path === "/about-us" ? "👈" : ""}
+        </li>
+        {/* 초기에는 SSR로 일반 html이지만 hydrate 이후 React Component가 되어 이벤트리스너가 동작한다 */}
+        {/* <li>
+          <button onClick={() => setCount((prev) => prev + 1)}>{count}</button>
+        </li> */}
+      </ul>
+    </nav>
+  );
 }

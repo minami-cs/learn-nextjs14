@@ -28,8 +28,8 @@ export default function Navigation() {
           <Link href="/">Home</Link> {path === "/" ? "👈" : ""}
         </li>
         <li>
-          <Link href="/about-us">About Us</Link>{" "}
-          {path === "/about-us" ? "👈" : ""}
+          <Link href="/about-me">About Me</Link>{" "}
+          {path === "/about-me" ? "👈" : ""}
         </li>
         {/* 초기에는 SSR로 일반 html이지만 hydrate 이후 React Component가 되어 이벤트리스너가 동작한다 */}
         {/* <li>

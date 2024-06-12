@@ -12,6 +12,7 @@ export default async function MovieDetail({
 }) {
   return (
     <div>
+      <h3>Movi detail page</h3>
       {/*
         Suspense 컴포넌트는 컴포넌트가 비동기 데이터 페칭 통신을 위해 await 하는 동안 다른 컴포넌트를 보여주는 역할을 한다.
         Suspense 컴포넌트는 Promise.all을 사용하지 않아도 감싸고 있는 각각의 컴포넌트 별로 병렬적으로 비동기 데이터 페칭을 하는 것과 같다.
@@ -19,6 +20,7 @@ export default async function MovieDetail({
       <Suspense fallback={<h1>Loading movie info</h1>}>
         <Movieinfo id={id} />
       </Suspense>
+      <h4>Movie videos</h4>
       <Suspense fallback={<h1>Loading movie videos</h1>}>
         <MovieVideos id={id} />
       </Suspense>

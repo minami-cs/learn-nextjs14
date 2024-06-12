@@ -1,8 +1,9 @@
 // next는 실행시 무조건 app 폴더 안의 page.tsx를 먼저 참조한다
 // 여기가 root
 
-import Link from "next/link";
 import { MOVIES_BASE_URL } from "../../constants/constants";
+import Movie from "../../components/movie";
+import styles from "../../styles/home.module.css";
 
 // client component에서는 metadata 사용 불가
 export const metadata = {
@@ -45,11 +46,14 @@ export default async function HomePage() {
   const movies = await getMovies();
 
   return (
-    <div>
+    <div className={styles.container}>
       {movies.map((movie) => (
-        <li key={movie.id}>
-          <Link href={`/movies/${movie.id}`}>{movie.title}</Link>
-        </li>
+        <Movie
+          key={movie.id}
+          title={movie.title}
+          id={movie.id}
+          poster_path={movie.poster_path}
+        />
       ))}
     </div>
   );

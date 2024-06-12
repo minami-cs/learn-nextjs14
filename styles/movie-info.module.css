@@ -12,13 +12,32 @@
 
   max-width: 70%;
 
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 .title {
   font-size: 36px;
   font-weight: 600;
-  color: white;
+  color: whitesmoke;
+}
+
+.genres {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.genre {
+  font-size: 16px;
+  color: cadetblue;
+}
+
+.genre:not(:last-child)::after {
+  content: " /";
+}
+
+.votes {
+  font-size: 12px;
 }
 
 .info {
@@ -27,4 +46,12 @@
   gap: 20px;
 
   margin-top: 20px;
+}
+
+.overview {
+  line-height: 120%;
+}
+
+.release {
+  font-size: 14px;
 }

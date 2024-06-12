@@ -2,8 +2,6 @@ import { MOVIES_BASE_URL } from "../constants/constants";
 import styles from "../styles/movie-info.module.css";
 
 async function getMovie(id: string) {
-  console.log(`Fetching movie data: ${Date.now()}`);
-  await new Promise((resolve) => setTimeout(resolve, 3000));
   const res = await fetch(`${MOVIES_BASE_URL}/${id}`).then((res) => res.json());
 
   return res;
@@ -22,8 +20,24 @@ export default async function Movieinfo({ id }: { id: string }) {
       />
       <div className={styles.info}>
         <h1 className={styles.title}>{movie.title}</h1>
-        <h3>{movie.vote_average}</h3>
-        <p>{movie.overview}</p>
+        <div className={styles.genres}>
+          {movie.genres.map((genre) => {
+            return (
+              <p key={genre.id} className={styles.genre}>
+                {genre.name}
+              </p>
+            );
+          })}
+        </div>
+        <h3>
+          ⭐️ {movie.vote_average.toFixed(1)}{" "}
+          <span className={styles.votes}>/ {movie.vote_count} votes</span>
+        </h3>
+        <p className={styles.overview}>{movie.overview}</p>
+        <p className={styles.release}>Release Date: {movie.release_date}</p>
+        <a href={movie.homepage} target="_blank">
+          Homepage &rarr;
+        </a>
       </div>
     </div>
   );

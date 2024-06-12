@@ -1,7 +1,7 @@
 import { MOVIES_BASE_URL } from "../constants/constants";
 import styles from "../styles/movie-info.module.css";
 
-async function getMovie(id: string) {
+export async function getMovie(id: string) {
   const res = await fetch(`${MOVIES_BASE_URL}/${id}`).then((res) => res.json());
 
   return res;

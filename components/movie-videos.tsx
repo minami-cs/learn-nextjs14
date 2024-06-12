@@ -4,12 +4,12 @@ async function getVideos(id: string) {
   console.log(`Fetching movie data: ${Date.now()}`);
   await new Promise((resolve) => setTimeout(resolve, 5000));
   // error handling을 위해서 일부러 에러 발생
-  throw new Error("something broke...");
-  // const res = await fetch(`${MOVIES_BASE_URL}/${id}/videos`).then((res) =>
-  //   res.json()
-  // );
+  // throw new Error("something broke...");
+  const res = await fetch(`${MOVIES_BASE_URL}/${id}/videos`).then((res) =>
+    res.json()
+  );
 
-  // return res;
+  return res;
 }
 
 // 영화 영상만 렌더링하는 컴포넌트
